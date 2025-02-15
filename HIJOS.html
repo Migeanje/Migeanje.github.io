@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SIMBA</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background-image: url('img/BG2.jpeg');
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+
+            padding: 20px;
+        }
+
+        .image-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+
+            gap: 20px;
+            
+            width: 100%;
+        }
+
+        .image-wrapper {
+            position: relative;
+            overflow: hidden;
+            border-radius: 15px;
+            aspect-ratio: 9/16;
+        }
+
+        .image-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease, filter 0.5s ease;
+        }
+
+        .image-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(
+                to bottom,
+                rgba(0, 0, 0, 0) 0%,
+                rgba(0, 0, 0, 0.8) 100%
+            );
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 20px;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .image-wrapper:hover .image-overlay {
+            opacity: 1;
+        }
+
+        .image-wrapper:hover img {
+            transform: scale(1.1);
+            filter: brightness(0.8);
+        }
+
+        .image-title {
+            color: white;
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            transform: translateY(20px);
+            transition: transform 0.3s ease;
+        }
+
+        .image-description {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 1rem;
+            transform: translateY(20px);
+            transition: transform 0.3s ease;
+        }
+
+        .image-wrapper:hover .image-title,
+        .image-wrapper:hover .image-description {
+            transform: translateY(0);
+        }
+
+        .floating-button {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            padding: 15px 30px;
+            background: linear-gradient(45deg, #ff6b6b, #ff8e8e);
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            font-weight: bold;
+            z-index: 1000;
+        }
+
+        .floating-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+        }
+
+        @media (max-width: 768px) {
+            .image-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .floating-button {
+                bottom: 20px;
+                right: 20px;
+                padding: 12px 25px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="image-grid">
+            <div class="image-wrapper">
+                <img src="img/SIMBAL.jpeg" alt="Imagen 1">
+                <div class="image-overlay">
+                    <h2 class="image-title">SIMBA </h2>
+                    <p class="image-description">El vino siendo Bella pero sin saber que seria Simba y asi todo bebe esta listo para verte triunfar para verte mejorar dia a dia como lo hubiera querido su hermano   </p>
+                </div>
+            </div>
+            <div class="image-wrapper">
+                <img src="img/SIMBALD.jpeg" alt="Imagen 2">
+                <div class="image-overlay">
+                    <h2 class="image-title">SIMBA </h2>
+                    <p class="image-description">El siempre estara con nosotros, solo el sabe el esfuerzo y esmero que tuviste las horas de sueño que perdiste y todos saben lo mucho que lo quisiste, amaste, cuidaste y ahi donde este siempre estara orgulloso de la persona en que te estas conviritiendo</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <a href="#" class="floating-button">FIN</a>
+</body>
+</html>
